@@ -1,0 +1,33 @@
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  label {
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 5px;
+  }
+  input {
+    padding: 7px 10px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+  }
+}
+
+.feedback-error {
+  font-size: 14px;
+  color: var(--text-orange);
+  margin-top: 7px;
+}
+
+.btn {
+  padding: 7px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--text-link);
+  color: var(--bg);
+  font-weight: 500;
+  &.btn-full {
+    width: 100%;
+  }
+}

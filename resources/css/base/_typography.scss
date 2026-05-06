@@ -1,0 +1,26 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Roboto Condensed", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: var(--text-link);
+  text-decoration: none;
+}
+
+.logo {
+  font-family: "Passero One", sans-serif;
+  font-weight: 400;
+}
+
+p {
+  margin-bottom: 20px;
+}

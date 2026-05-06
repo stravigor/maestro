@@ -1,0 +1,128 @@
+.page-workflow {
+  padding: 24px;
+  max-width: 760px;
+
+  .page-header {
+    margin-bottom: 20px;
+    h1 {
+      margin: 0 0 4px;
+    }
+    p {
+      margin: 0;
+      color: var(--text-muted, #6b7280);
+    }
+  }
+
+  .toolbar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+  }
+
+  .empty {
+    padding: 24px;
+    text-align: center;
+    color: var(--text-muted, #6b7280);
+    border: 1px dashed var(--border);
+    border-radius: 8px;
+  }
+
+  .card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+
+  .workflow-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .workflow-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+
+    h3 {
+      margin: 0 0 4px;
+    }
+    .muted {
+      color: var(--text-muted, #6b7280);
+    }
+    .workflow-summary {
+      flex: 1;
+    }
+    .workflow-actions {
+      flex-shrink: 0;
+    }
+  }
+
+  .workflow-form {
+    .form-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    textarea {
+      padding: 7px 10px;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      font: inherit;
+      resize: vertical;
+    }
+  }
+
+  .columns,
+  .columns-editor .columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: var(--tag-bg, #eef2ff);
+    color: var(--tag-text, #3730a3);
+    font-size: 13px;
+  }
+
+  .tag-remove {
+    border: none;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1;
+    padding: 0 2px;
+  }
+
+  .columns-add {
+    display: flex;
+    gap: 6px;
+    input {
+      flex: 1;
+      padding: 7px 10px;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+    }
+  }
+
+  .btn-primary {
+    background-color: var(--text-link);
+    color: var(--bg);
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+}

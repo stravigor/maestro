@@ -1,0 +1,36 @@
+.login-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 600px;
+  grid-template-rows: 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 0px;
+  height: 100vh;
+  .presentation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    .logo {
+      color: var(--text-accent);
+      margin-top: 100px;
+      margin-bottom: 30px;
+      font-size: 50px;
+      font-weight: 400;
+    }
+  }
+  .login-inner {
+    background-color: #FFF;
+    border-left: 1px solid var(--border);
+    padding: 50px;
+    .credentials {
+      background-color: var(--bg-secondary);
+      padding: 15px;
+    }
+    h2 {
+      margin-bottom: 30px;
+    }
+    form {
+      margin: 50px 0 40px;
+    }
+  }
+}

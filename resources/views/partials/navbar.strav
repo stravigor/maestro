@@ -1,0 +1,10 @@
+<ul class="path">
+  <li><a href="/">Workspace</a></li>
+  <li><a href="/">Project</a></li>
+  <li><a href="/">String</a></li>
+</ul>
+
+<ul>
+  <li><a href="/"><i class="fas fa-wave-square fa-fw"></i> Activity</a></li>
+  <li><a href="/">LR</a></li>
+</ul>

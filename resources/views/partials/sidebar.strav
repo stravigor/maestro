@@ -1,0 +1,49 @@
+<div class="sidebar-projects">
+  <h4 class="sidebar-section-title">Projects</h4>
+  @if(typeof projects !== 'undefined' && projects && projects.length > 0)
+    <ul class="project-list">
+      @each(project in projects)
+        <li class="project-item">
+          <div class="project-item-head">
+            <i class="far fa-folder fa-fw"></i>
+            <span class="project-name">{{ project.name }}</span>
+          </div>
+          <ul class="project-submenu">
+            <li>
+              <a href="/projects/{{ project.id }}/stories">
+                <i class="far fa-tasks fa-fw"></i>
+                <span>Stories</span>
+              </a>
+            </li>
+            <li>
+              <a href="/projects/{{ project.id }}/sprints">
+                <i class="far fa-rabbit-fast fa-fw"></i>
+                <span>Sprints</span>
+              </a>
+            </li>
+            <li>
+              <a href="/projects/{{ project.id }}/backlog">
+                <i class="far fa-list fa-fw"></i>
+                <span>Backlog</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      @end
+    </ul>
+  @else
+    <p class="sidebar-empty">No projects yet.</p>
+  @end
+</div>
+
+<ul class="sidebar-bottom">
+  <li>
+    <a href="/projects"><i class="far fa-file-alt fa-fw"></i> <span>Projects</span></a>
+  </li>
+  <li>
+    <a href="/workflow"><i class="far fa-stream fa-fw"></i> <span>Workflow</span></a>
+  </li>
+  <li>
+    <a href="/logout"><i class="fas fa-sign-out-alt fa-fw"></i> <span>Logout</span></a>
+  </li>
+</ul>

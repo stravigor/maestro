@@ -1,0 +1,142 @@
+.page-projects {
+  padding: 24px;
+  max-width: 760px;
+
+  .page-header {
+    margin-bottom: 20px;
+    h1 {
+      margin: 0 0 4px;
+    }
+    p {
+      margin: 0;
+      color: var(--text-muted, #6b7280);
+    }
+  }
+
+  .toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
+
+    .toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-muted, #6b7280);
+      font-size: 14px;
+    }
+  }
+
+  .empty {
+    padding: 24px;
+    text-align: center;
+    color: var(--text-muted, #6b7280);
+    border: 1px dashed var(--border);
+    border-radius: 8px;
+  }
+
+  .card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+
+  .project-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .project-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+
+    &.archived {
+      opacity: 0.7;
+    }
+
+    h3 {
+      margin: 0 0 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .muted {
+      color: var(--text-muted, #6b7280);
+    }
+    .project-summary {
+      flex: 1;
+    }
+    .project-actions {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    background: var(--badge-bg, #f3f4f6);
+    color: var(--badge-text, #6b7280);
+  }
+
+  .workflow-tag {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 4px;
+    background: var(--tag-bg, #e0e7ff);
+    color: var(--tag-text, #3730a3);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .small {
+    font-size: 13px;
+    margin: 4px 0 0;
+  }
+
+  select {
+    padding: 7px 10px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    font: inherit;
+  }
+
+  .project-form {
+    .form-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    textarea {
+      padding: 7px 10px;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      font: inherit;
+      resize: vertical;
+    }
+  }
+
+  .btn-primary {
+    background-color: var(--text-link);
+    color: var(--bg);
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+@layout('layouts/auth')
+
+@section('content')
+  <div class="login-wrapper">
+    <div class="presentation">
+      <h1 class="logo">maestro</h1>
+      <p>
+        A small, opinionated showcase for the Strav framework:
+        workspaces, projects, stories, and a few AI moments.
+      </p>
+    </div>
+    <div class="login-inner">
+      <h2>Welcome back</h2>
+      <p>
+        Sign in yo your workspace, or use the seeded demo account.
+      </p>
+      <div class="credentials">
+        user: demo@strav.dev<br/>
+        password: demo1234
+      </div>
+      <vue:auth/login />
+      <p>
+        New here? <a href="/register">Create a workspace</a>
+      </p>
+    </div>
+  </div>
+@end

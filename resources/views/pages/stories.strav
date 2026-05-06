@@ -1,0 +1,16 @@
+@layout('layouts/app')
+
+@section('content')
+  <section class="page page-stories">
+    <header class="page-header">
+      <h1>Stories</h1>
+      <p>Drop work into the columns of your project's workflow.</p>
+    </header>
+
+    @if(typeof projectId !== 'undefined')
+      <vue:story/index :project-id="projectId" />
+    @else
+      <vue:story/index />
+    @end
+  </section>
+@end

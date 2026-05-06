@@ -1,0 +1,16 @@
+ALTER TABLE "workflow" ADD CONSTRAINT "fk_workflow_workspace_id" FOREIGN KEY ("workspace_id") REFERENCES "workspace" ("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "project" ADD CONSTRAINT "fk_project_workspace_id" FOREIGN KEY ("workspace_id") REFERENCES "workspace" ("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "project" ADD CONSTRAINT "fk_project_workspace_id_workflow_id" FOREIGN KEY ("workspace_id", "workflow_id") REFERENCES "workflow" ("workspace_id", "id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "sprint" ADD CONSTRAINT "fk_sprint_workspace_id" FOREIGN KEY ("workspace_id") REFERENCES "workspace" ("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "sprint" ADD CONSTRAINT "fk_sprint_workspace_id_project_id" FOREIGN KEY ("workspace_id", "project_id") REFERENCES "project" ("workspace_id", "id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "workspace" ADD CONSTRAINT "fk_workspace_owner_id" FOREIGN KEY ("owner_id") REFERENCES "user" ("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "workspace_user" ADD CONSTRAINT "fk_workspace_user_workspace_id" FOREIGN KEY ("workspace_id") REFERENCES "workspace" ("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "workspace_user" ADD CONSTRAINT "fk_workspace_user_user_id" FOREIGN KEY ("user_id") REFERENCES "user" ("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "workspace_user" ADD CONSTRAINT "uq_workspace_user_workspace_id_user_id" UNIQUE ("workspace_id", "user_id");
+ALTER TABLE "story" ADD CONSTRAINT "fk_story_workspace_id" FOREIGN KEY ("workspace_id") REFERENCES "workspace" ("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "story" ADD CONSTRAINT "fk_story_workspace_id_project_id" FOREIGN KEY ("workspace_id", "project_id") REFERENCES "project" ("workspace_id", "id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "story" ADD CONSTRAINT "fk_story_assignee_id" FOREIGN KEY ("assignee_id") REFERENCES "user" ("id") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "story" ADD CONSTRAINT "fk_story_workspace_id_sprint_id" FOREIGN KEY ("workspace_id", "sprint_id") REFERENCES "sprint" ("workspace_id", "id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "comment" ADD CONSTRAINT "fk_comment_workspace_id" FOREIGN KEY ("workspace_id") REFERENCES "workspace" ("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "comment" ADD CONSTRAINT "fk_comment_workspace_id_story_id" FOREIGN KEY ("workspace_id", "story_id") REFERENCES "story" ("workspace_id", "id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "comment" ADD CONSTRAINT "fk_comment_author_id" FOREIGN KEY ("author_id") REFERENCES "user" ("id") ON DELETE RESTRICT ON UPDATE CASCADE;

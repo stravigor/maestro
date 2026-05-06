@@ -1,0 +1,43 @@
+.app-name {
+  border-right: 1px solid var(--border);
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  font-family: "Passero One", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--text-orange);
+}
+.navbar {
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  ul {
+    list-style: none;
+    padding-inline-start: 0;
+    margin: 0 20px;
+    display: flex;
+    column-gap: 30px;
+    li {
+      display: grid;
+      height: 50px;
+      align-content: center;
+      a {
+        color: var(--text);
+        text-decoration: none;
+        font-weight: 500;
+        i {
+          margin-right: 5px;
+          color: var(--text-muted);
+        }
+      }
+    }
+    &.path {
+      li {
+        a {
+          color: var(--text-muted);
+        }
+      }
+    }
+  }
+}

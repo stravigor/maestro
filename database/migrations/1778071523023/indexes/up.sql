@@ -1,0 +1,13 @@
+CREATE INDEX IF NOT EXISTS "idx_project_workspace_id_workflow_id" ON "project" ("workspace_id", "workflow_id");
+CREATE INDEX IF NOT EXISTS "idx_sprint_workspace_id_project_id" ON "sprint" ("workspace_id", "project_id");
+CREATE UNIQUE INDEX IF NOT EXISTS "idx_user_email_unique" ON "user" ("email");
+CREATE UNIQUE INDEX IF NOT EXISTS "idx_workspace_slug_unique" ON "workspace" ("slug");
+CREATE INDEX IF NOT EXISTS "idx_workspace_owner_id" ON "workspace" ("owner_id");
+CREATE INDEX IF NOT EXISTS "idx_workspace_user_workspace_id" ON "workspace_user" ("workspace_id");
+CREATE INDEX IF NOT EXISTS "idx_workspace_user_user_id" ON "workspace_user" ("user_id");
+CREATE UNIQUE INDEX IF NOT EXISTS "idx_workspace_user_workspace_id_user_id_unique" ON "workspace_user" ("workspace_id", "user_id");
+CREATE INDEX IF NOT EXISTS "idx_story_workspace_id_project_id" ON "story" ("workspace_id", "project_id");
+CREATE INDEX IF NOT EXISTS "idx_story_assignee_id" ON "story" ("assignee_id");
+CREATE INDEX IF NOT EXISTS "idx_story_workspace_id_sprint_id" ON "story" ("workspace_id", "sprint_id");
+CREATE INDEX IF NOT EXISTS "idx_comment_workspace_id_story_id" ON "comment" ("workspace_id", "story_id");
+CREATE INDEX IF NOT EXISTS "idx_comment_author_id" ON "comment" ("author_id");

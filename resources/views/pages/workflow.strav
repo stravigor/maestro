@@ -1,0 +1,12 @@
+@layout('layouts/app')
+
+@section('content')
+  <section class="page page-workflow">
+    <header class="page-header">
+      <h1>Workflows</h1>
+      <p>Define how stories move through stages.</p>
+    </header>
+
+    <vue:workflow/index />
+  </section>
+@end

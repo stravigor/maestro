@@ -1,0 +1,22 @@
+@layout('layouts/auth')
+
+@section('content')
+  <div class="login-wrapper">
+    <div class="presentation">
+      <h1 class="logo">maestro</h1>
+      <p>
+        A small, opinionated showcase for the Strav framework:
+        workspaces, projects, stories, and a few AI moments.
+      </p>
+    </div>
+    <div class="login-inner">
+      <h2>Welcome back</h2>
+      <p>
+        Not yet implemented, use the seeded demo account.
+      </p>
+      <p>
+        <a href="/login">Sign in <i class="far fa-long-arrow-right"></i></a>
+      </p>
+    </div>
+  </div>
+@end

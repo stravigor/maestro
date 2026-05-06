@@ -1,0 +1,13 @@
+DROP INDEX IF EXISTS "idx_comment_author_id";
+DROP INDEX IF EXISTS "idx_comment_workspace_id_story_id";
+DROP INDEX IF EXISTS "idx_story_workspace_id_sprint_id";
+DROP INDEX IF EXISTS "idx_story_assignee_id";
+DROP INDEX IF EXISTS "idx_story_workspace_id_project_id";
+DROP INDEX IF EXISTS "idx_workspace_user_workspace_id_user_id_unique";
+DROP INDEX IF EXISTS "idx_workspace_user_user_id";
+DROP INDEX IF EXISTS "idx_workspace_user_workspace_id";
+DROP INDEX IF EXISTS "idx_workspace_owner_id";
+DROP INDEX IF EXISTS "idx_workspace_slug_unique";
+DROP INDEX IF EXISTS "idx_user_email_unique";
+DROP INDEX IF EXISTS "idx_sprint_workspace_id_project_id";
+DROP INDEX IF EXISTS "idx_project_workspace_id_workflow_id";

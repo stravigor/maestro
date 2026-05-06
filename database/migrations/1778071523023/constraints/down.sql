@@ -1,0 +1,16 @@
+ALTER TABLE "comment" DROP CONSTRAINT IF EXISTS "fk_comment_author_id";
+ALTER TABLE "comment" DROP CONSTRAINT IF EXISTS "fk_comment_workspace_id_story_id";
+ALTER TABLE "comment" DROP CONSTRAINT IF EXISTS "fk_comment_workspace_id";
+ALTER TABLE "story" DROP CONSTRAINT IF EXISTS "fk_story_workspace_id_sprint_id";
+ALTER TABLE "story" DROP CONSTRAINT IF EXISTS "fk_story_assignee_id";
+ALTER TABLE "story" DROP CONSTRAINT IF EXISTS "fk_story_workspace_id_project_id";
+ALTER TABLE "story" DROP CONSTRAINT IF EXISTS "fk_story_workspace_id";
+ALTER TABLE "workspace_user" DROP CONSTRAINT IF EXISTS "uq_workspace_user_workspace_id_user_id";
+ALTER TABLE "workspace_user" DROP CONSTRAINT IF EXISTS "fk_workspace_user_user_id";
+ALTER TABLE "workspace_user" DROP CONSTRAINT IF EXISTS "fk_workspace_user_workspace_id";
+ALTER TABLE "workspace" DROP CONSTRAINT IF EXISTS "fk_workspace_owner_id";
+ALTER TABLE "sprint" DROP CONSTRAINT IF EXISTS "fk_sprint_workspace_id_project_id";
+ALTER TABLE "sprint" DROP CONSTRAINT IF EXISTS "fk_sprint_workspace_id";
+ALTER TABLE "project" DROP CONSTRAINT IF EXISTS "fk_project_workspace_id_workflow_id";
+ALTER TABLE "project" DROP CONSTRAINT IF EXISTS "fk_project_workspace_id";
+ALTER TABLE "workflow" DROP CONSTRAINT IF EXISTS "fk_workflow_workspace_id";
