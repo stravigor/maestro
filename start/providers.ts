@@ -4,8 +4,8 @@ import { DatabaseProvider, PostgresSessionStore } from "@strav/database"
 import { ViewProvider, PagesProvider } from '@strav/view'
 import User from '#models/user'
 
-// SessionProvider resolves PostgresSessionStore from the container but
-// DatabaseProvider doesn't register it for us — wire it up here.
+// TODO: drop this workaround once @strav/http >= 0.4.8 ships —
+// SessionProvider now registers the store class itself.
 class SessionStoreProvider extends ServiceProvider {
   readonly name = 'session-store'
   override readonly dependencies = ['database']
