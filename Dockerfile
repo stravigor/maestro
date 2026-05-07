@@ -31,6 +31,20 @@ echo "[entrypoint] Postgres is up"
 if [ ! -f /app/.bootstrapped ]; then
   echo "[entrypoint] first boot — creating app + bypass roles"
   bun strav db:setup-roles --apply --superuser postgres
+
+  # Migrations run as the bypass role, so tables it creates don't
+  # inherit the default privileges set by db:setup-roles (which only
+  # apply to the superuser's creations). Add a per-role ALTER DEFAULT
+  # PRIVILEGES so every future table/sequence the bypass role creates
+  # is automatically readable/writable by the app role.
+  echo "[entrypoint] granting bypass-owned future tables to the app role"
+  PGPASSWORD="$DB_SUPERUSER_PASSWORD" psql \
+    -h "$DB_HOST" -p "$DB_PORT" -U postgres -d "$DB_DATABASE" \
+    -v ON_ERROR_STOP=1 <<SQL
+ALTER DEFAULT PRIVILEGES FOR ROLE "$DB_BYPASS_USER" IN SCHEMA public GRANT ALL ON TABLES TO "$DB_USER";
+ALTER DEFAULT PRIVILEGES FOR ROLE "$DB_BYPASS_USER" IN SCHEMA public GRANT ALL ON SEQUENCES TO "$DB_USER";
+SQL
+
   echo "[entrypoint] running seed --fresh"
   bun strav seed --fresh
   touch /app/.bootstrapped

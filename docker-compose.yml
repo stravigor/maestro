@@ -17,7 +17,7 @@ services:
     build:
       # Pulls source from the public repository at build time.
       # Override with `BUILD_REF=<branch|tag|sha>` if you want a specific ref.
-      context: https://github.com/stravigor/maestro.git#${BUILD_REF:-main}
+      context: https://github.com/stravigor/maestro.git#${BUILD_REF:-master}
       dockerfile: Dockerfile
     environment:
       APP_ENV: local
@@ -25,6 +25,8 @@ services:
       APP_KEY: 0000000000000000000000000000000000000000000000000000000000000000
       HOST: 0.0.0.0
       PORT: 3000
+      DOMAIN: localhost
+      APP_URL: http://localhost:3000
       APP_SECURE: 'false'
 
       # App + bypass database users (created on first boot by db:setup-roles).
