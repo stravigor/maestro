@@ -31,21 +31,6 @@ echo "[entrypoint] Postgres is up"
 if [ ! -f /app/.bootstrapped ]; then
   echo "[entrypoint] first boot — creating app + bypass roles"
   bun strav db:setup-roles --apply --superuser postgres
-
-  # TODO: drop this block once a strav release ships with the
-  # db:setup-roles fix that runs ALTER DEFAULT PRIVILEGES FOR ROLE
-  # <bypass>. Until then, tables created during migration aren't
-  # accessible to the app role and `seed --fresh` fails with
-  # `permission denied for table user`. Idempotent — re-running on a
-  # patched strav version is a harmless no-op.
-  echo "[entrypoint] granting bypass-owned future tables to the app role"
-  PGPASSWORD="$DB_SUPERUSER_PASSWORD" psql \
-    -h "$DB_HOST" -p "$DB_PORT" -U postgres -d "$DB_DATABASE" \
-    -v ON_ERROR_STOP=1 <<SQL
-ALTER DEFAULT PRIVILEGES FOR ROLE "$DB_BYPASS_USER" IN SCHEMA public GRANT ALL ON TABLES TO "$DB_USER";
-ALTER DEFAULT PRIVILEGES FOR ROLE "$DB_BYPASS_USER" IN SCHEMA public GRANT ALL ON SEQUENCES TO "$DB_USER";
-SQL
-
   echo "[entrypoint] running seed --fresh"
   bun strav seed --fresh
   touch /app/.bootstrapped
