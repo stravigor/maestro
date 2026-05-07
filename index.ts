@@ -25,8 +25,6 @@ app
     }
   })
 
-await import('./start/captcha')
-
 await import('./start/routes/web')
 await import('./start/routes/api')
 
