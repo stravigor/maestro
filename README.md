@@ -36,6 +36,8 @@ Compose pulls the source from `https://github.com/stravigor/maestro` at build ti
 
 Override the build ref with `BUILD_REF=<branch|tag|sha> docker compose up --build`. To start clean, `docker compose down -v` wipes the database volume.
 
+If you upgrade the strav version and bootstrap fails with `must be owner of table ...`, the persisted volume is from an older schema the new app role can't drop. Run `docker compose down -v` and bring it back up — the bootstrap-marker lives inside the container, but the DB volume outlives container rebuilds, so a fresh image can stare at a half-old schema.
+
 The compose file ships demo credentials and a placeholder `APP_KEY`. Replace both before running anywhere that matters.
 
 ## Setup (without Docker)
