@@ -1,0 +1,49 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: maestro
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres -d maestro']
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  app:
+    build:
+      # Pulls source from the public repository at build time.
+      # Override with `BUILD_REF=<branch|tag|sha>` if you want a specific ref.
+      context: https://github.com/stravigor/maestro.git#${BUILD_REF:-main}
+      dockerfile: Dockerfile
+    environment:
+      APP_ENV: local
+      # Demo encryption key — replace before running anywhere that matters.
+      APP_KEY: 0000000000000000000000000000000000000000000000000000000000000000
+      HOST: 0.0.0.0
+      PORT: 3000
+      APP_SECURE: 'false'
+
+      # App + bypass database users (created on first boot by db:setup-roles).
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_DATABASE: maestro
+      DB_USER: strav_app
+      DB_PASSWORD: changeme
+      DB_BYPASS_USER: strav_admin
+      DB_BYPASS_PASSWORD: changeme
+
+      # Used once at first boot to create the two roles above.
+      # Must match POSTGRES_PASSWORD on the postgres service.
+      DB_SUPERUSER_PASSWORD: postgres
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - '3000:3000'
+
+volumes:
+  pgdata:

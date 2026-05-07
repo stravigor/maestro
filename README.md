@@ -22,7 +22,23 @@ A small, opinionated showcase for the [Strav](https://github.com/stravigor/strav
 
 Tenanted tables (`workflow`, `project`, `sprint`, `story`, `comment`) carry a `workspace_id` column with an RLS policy. Every authenticated request resolves the current workspace from the session and runs queries inside `withTenant(workspace.id, ...)`.
 
-## Setup
+## Try it with Docker
+
+Quickest way to kick the tires — only Docker is needed locally:
+
+```sh
+# In a fresh directory:
+curl -O https://raw.githubusercontent.com/stravigor/maestro/main/docker-compose.yml
+docker compose up
+```
+
+Compose pulls the source from `https://github.com/stravigor/maestro` at build time, starts a Postgres 17 container, creates the two RLS roles via `bun strav db:setup-roles`, runs `seed --fresh`, and starts the app at [http://localhost:3000](http://localhost:3000). First boot takes a minute or two; subsequent starts skip the migration/seed step.
+
+Override the build ref with `BUILD_REF=<branch|tag|sha> docker compose up --build`. To start clean, `docker compose down -v` wipes the database volume.
+
+The compose file ships demo credentials and a placeholder `APP_KEY`. Replace both before running anywhere that matters.
+
+## Setup (without Docker)
 
 ### Requirements
 
