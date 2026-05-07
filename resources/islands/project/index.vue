@@ -16,12 +16,12 @@
       <h3>New project</h3>
       <div class="form-group">
         <label>Name</label>
-        <input v-model="draft.name" type="text" required maxlength="120" />
+        <input v-model="draft.name" type="text" required maxlength="120" class="w-full" />
         <div v-if="draftErrors.name" class="feedback-error">{{ draftErrors.name.join(', ') }}</div>
       </div>
       <div class="form-group">
         <label>Workflow</label>
-        <select v-model="draft.workflowId">
+        <select v-model="draft.workflowId" class="w-full">
           <option value="">— None —</option>
           <option v-for="w in workflows" :key="w.id" :value="w.id">{{ w.name }}</option>
         </select>
@@ -31,7 +31,7 @@
       </div>
       <div class="form-group">
         <label>Description</label>
-        <textarea v-model="draft.description" rows="3"></textarea>
+        <textarea v-model="draft.description" rows="3" class="w-full"></textarea>
       </div>
       <div class="form-actions">
         <button type="button" class="btn" @click="cancelCreate">Cancel</button>
@@ -62,15 +62,15 @@
           </div>
         </template>
 
-        <form v-else class="project-form" @submit.prevent="submitEdit(p.id)">
+        <form v-else class="project-form w-full" @submit.prevent="submitEdit(p.id)">
           <div class="form-group">
             <label>Name</label>
-            <input v-model="editDraft.name" type="text" required maxlength="120" />
+            <input v-model="editDraft.name" type="text" required maxlength="120"  class="w-full"/>
             <div v-if="editErrors.name" class="feedback-error">{{ editErrors.name.join(', ') }}</div>
           </div>
           <div class="form-group">
             <label>Workflow</label>
-            <select v-model="editDraft.workflowId">
+            <select v-model="editDraft.workflowId" class="w-full">
               <option value="">— None —</option>
               <option v-for="w in workflows" :key="w.id" :value="w.id">{{ w.name }}</option>
             </select>
@@ -80,7 +80,7 @@
           </div>
           <div class="form-group">
             <label>Description</label>
-            <textarea v-model="editDraft.description" rows="3"></textarea>
+            <textarea v-model="editDraft.description" rows="3" class="w-full"></textarea>
           </div>
           <div class="form-actions">
             <button type="button" class="btn" @click="cancelEdit">Cancel</button>

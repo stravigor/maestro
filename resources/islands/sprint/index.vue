@@ -59,7 +59,7 @@
                 <span v-if="s.startedAt || s.endedAt"> · {{ formatRange(s) }}</span>
               </p>
             </div>
-            <button class="btn btn-ghost" @click="startEdit(s)">Edit</button>
+            <button class="btn btn-ghost" @click="startEdit(s)"><i class="far fa-edit"></i></button>
           </template>
 
           <form v-else class="sprint-form inline" @submit.prevent="submitEdit(s)">
